@@ -299,13 +299,7 @@ const Portfolio = () => {
                         <span className="hidden sm:inline">View Project</span>
                         <span className="sm:hidden">View</span>
                       </button>
-                      <button className="px-3 py-2 md:px-6 md:py-3 bg-gray-800/80 backdrop-blur-md text-white rounded-lg font-semibold hover:bg-gray-700/80 transition-all flex items-center gap-1 md:gap-2 text-sm md:text-base">
-                        <svg className="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                        <span className="hidden sm:inline">More Info</span>
-                        <span className="sm:hidden">Info</span>
-                      </button>
+                      {/* More Info button removed */}
                     </div>
                   </div>
                 </div>
@@ -468,9 +462,7 @@ const Portfolio = () => {
                     <span className="hidden sm:inline">View Project</span>
                     <span className="sm:hidden">View</span>
                   </button>
-                  <button className="px-3 sm:px-4 py-2 border-2 border-gray-900 text-gray-900 rounded-lg text-xs sm:text-sm font-medium hover:bg-gray-900 hover:text-white transition-colors">
-                    Details
-                  </button>
+                  {/* Details button removed */}
                 </div>
               </div>
             </div>
