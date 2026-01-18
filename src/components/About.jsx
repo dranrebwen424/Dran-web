@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import profileImage from '../../assets/profile/profile-1.png';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -177,7 +178,7 @@ const About = () => {
 
   return (
     <section ref={sectionRef} id="about" className="min-h-screen py-20 bg-gradient-to-br from-gray-50 to-white">
-      <div className="px-6 md:px-12 lg:mx-[20%]">
+      <div className="px-6 md:px-12 lg:mx-[13%]">
         <h2 ref={titleRef} className="text-3xl md:text-4xl lg:text-5xl font-bold text-center text-gray-900 mb-8 md:mb-12">
           About Me
         </h2>
@@ -188,7 +189,7 @@ const About = () => {
           
           {/* Profile Card - Large Bento Item (2x2) */}
           <BentoCard className="lg:col-span-2 lg:row-span-2 bento-card">
-            <MagicCard className="h-full min-h-[350px] md:min-h-[400px]">
+            <MagicCard className="h-full min-h-[315px] md:min-h-[325px]">
               <div className="relative h-full overflow-hidden rounded-3xl bg-gradient-to-br from-gray-50 via-white to-gray-100">
                 {/* Abstract SVG Background Pattern */}
                 <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -209,7 +210,7 @@ const About = () => {
                 
                 {/* Profile Image */}
                 <img
-                  src="/assets/profile/profile-1.png"
+                  src={profileImage}
                   alt="Profile"
                   className="absolute scale-[1.4] md:scale-[1.65] right-[-1rem] md:right-[-2rem] top-[3rem] md:top-[5rem] h-full w-auto object-contain object-right z-10 drop-shadow-2xl transition-all duration-500 group-hover:scale-[1.5] md:group-hover:scale-[1.7] group-hover:blur-[2px]"
                 />
