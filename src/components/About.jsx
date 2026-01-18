@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import profileImage from '../../assets/profile/profile-1.png';
+import { AnimatedList } from "@/components/ui/animated-list";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -55,7 +56,7 @@ const MagicCard = ({ children, className = "" }) => {
 // Custom Bento Grid Component
 const BentoGrid = ({ children, className = "" }) => {
   return (
-    <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 auto-rows-auto ${className}`}>
+    <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 ${className}`}>
       {children}
     </div>
   );
@@ -78,49 +79,33 @@ const About = () => {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Section fade-in animation
-      gsap.from(sectionRef.current, {
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: 'top 85%',
-          toggleActions: 'play none none none'
-        },
-        opacity: 0,
-        duration: 0.8,
-        ease: 'power2.out'
-      });
-
-      // Title animation
+      // Title animation with more dramatic effect
       gsap.from(titleRef.current, {
         scrollTrigger: {
-          trigger: sectionRef.current,
-          start: 'top 80%',
-          end: 'top 20%',
-          toggleActions: 'play none none none'
+          trigger: titleRef.current,
+          start: 'top 90%',
         },
+        duration: 0.6,
         y: 30,
         opacity: 0,
-        duration: 0.6,
-        delay: 0.2,
         ease: 'power2.out'
       });
 
-      // Staggered card animations
+      // Animate each card individually as they come into view
       const cards = gridRef.current?.querySelectorAll('.bento-card');
       if (cards && cards.length > 0) {
-        gsap.from(cards, {
-          scrollTrigger: {
-            trigger: gridRef.current,
-            start: 'top 80%',
-            end: 'top 20%',
-            toggleActions: 'play none none none'
-          },
-          y: 40,
-          opacity: 0,
-          duration: 0.6,
-          delay: 0.3,
-          stagger: 0.1,
-          ease: 'power2.out'
+        cards.forEach((card, index) => {
+          gsap.from(card, {
+            scrollTrigger: {
+              trigger: card,
+              start: 'top 90%',
+            },
+            duration: 0.6,
+            y: 50,
+            opacity: 0,
+            delay: index * 0.1,
+            ease: 'power2.out'
+          });
         });
       }
     }, sectionRef);
@@ -130,15 +115,6 @@ const About = () => {
 
   // Facts data
   const facts = [
-    {
-      icon: (
-        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
-        </svg>
-      ),
-      label: '☕ Coffee',
-      value: 'Enthusiast'
-    },
     {
       icon: (
         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -176,6 +152,15 @@ const About = () => {
     { name: 'Tools', icon: '🛠️' }
   ];
 
+  // Activities data for animated list
+  const activities = [
+    { text: "Coding", icon: "💻", color: "#3b82f6" },
+    { text: "Learning", icon: "📚", color: "#10b981" },
+    { text: "Coffee Break", icon: "☕", color: "#f59e0b" },
+    { text: "Problem Solving", icon: "🧩", color: "#8b5cf6" },
+    { text: "Building Projects", icon: "🏗️", color: "#ec4899" },
+  ];
+
   return (
     <section ref={sectionRef} id="about" className="min-h-screen py-20 bg-gradient-to-br from-gray-50 to-white">
       <div className="px-6 md:px-12 lg:mx-[13%]">
@@ -189,7 +174,7 @@ const About = () => {
           
           {/* Profile Card - Large Bento Item (2x2) */}
           <BentoCard className="lg:col-span-2 lg:row-span-2 bento-card">
-            <MagicCard className="h-full min-h-[315px] md:min-h-[325px]">
+            <MagicCard className="h-[500px] md:h-[480px] lg:h-[500px]">
               <div className="relative h-full overflow-hidden rounded-3xl bg-gradient-to-br from-gray-50 via-white to-gray-100">
                 {/* Abstract SVG Background Pattern */}
                 <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -212,17 +197,17 @@ const About = () => {
                 <img
                   src={profileImage}
                   alt="Profile"
-                  className="absolute scale-[1.4] md:scale-[1.65] right-[-1rem] md:right-[-2rem] top-[3rem] md:top-[5rem] h-full w-auto object-contain object-right z-10 drop-shadow-2xl transition-all duration-500 group-hover:scale-[1.5] md:group-hover:scale-[1.7] group-hover:blur-[2px]"
+                  className="absolute scale-[1.8] md:scale-[1.8] lg:scale-[1.5] left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0 md:right-[-1rem] lg:right-[10rem] top-[5rem] md:top-[-2rem] lg:top-[4rem] h-[50%] md:h-full max-h-[50%] md:max-h-[100%] w-auto object-contain object-center md:object-right z-10 drop-shadow-2xl transition-all duration-500 group-hover:scale-[1.55] md:group-hover:scale-[1.45] lg:group-hover:scale-[1.55]"
                 />
                 
                 {/* Content */}
-                <div className="absolute bottom-0 left-0 p-4 md:p-6 lg:p-8 z-20 max-w-md bg-gradient-to-r from-white/95 to-transparent backdrop-blur-sm rounded-tr-3xl">
-                  <div className="space-y-1 mb-2 md:mb-3">
-                    <div className="inline-block px-2 md:px-3 py-1 bg-gray-100 text-gray-700 text-xs md:text-sm font-semibold rounded-full mb-1 md:mb-2">Full-Stack Developer</div>
-                    <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight text-gray-900 mb-1">
+                <div className="absolute bottom-0 left-0 right-0 md:right-auto p-4 md:p-5 lg:p-6 z-20 w-full md:max-w-sm lg:max-w-md md:bg-gradient-to-r md:from-white/95 md:to-transparent md:backdrop-blur-sm md:rounded-tr-3xl">
+                  <div className="space-y-0.5 md:space-y-1 mb-2 md:mb-3">
+                    <div className="inline-block px-2 md:px-3 py-0.5 md:py-1 bg-gray-100 text-gray-700 text-xs md:text-sm font-semibold rounded-full mb-1 md:mb-2">Full-Stack Developer</div>
+                    <h2 className="text-xl md:text-2xl lg:text-3xl font-bold tracking-tight text-gray-900 mb-0.5 md:mb-1 leading-tight">
                       Who I Am?
                     </h2>
-                    <p className="text-sm md:text-base text-gray-600 font-medium">
+                    <p className="text-xs md:text-sm lg:text-base text-gray-600 font-medium leading-snug">
                       Designer & Creative Technologist
                     </p>
                   </div>
@@ -236,24 +221,24 @@ const About = () => {
 
           {/* Quick Facts Card - Regular Bento Item */}
           <BentoCard className="lg:col-span-1 bento-card">
-            <MagicCard className="h-full p-4 md:p-6 bg-gradient-to-br from-white to-gray-50">
-              <div className="flex items-center gap-2 mb-4 md:mb-5">
-                <div className="w-1 h-4 md:h-5 bg-gray-900 rounded-full"></div>
-                <h3 className="text-xl md:text-2xl font-bold tracking-tight text-gray-900">
+            <MagicCard className="h-[280px] md:h-[300px] lg:h-[238px] p-4 md:p-5 lg:p-6 bg-gradient-to-br from-white to-gray-50">
+              <div className="flex items-center gap-2 mb-2 md:mb-3">
+                <div className="w-1 h-4 bg-gray-900 rounded-full"></div>
+                <h3 className="text-base md:text-lg lg:text-xl font-bold tracking-tight text-gray-900">
                   Quick Facts
                 </h3>
               </div>
-              <div className="space-y-4">
+              <div className="space-y-1.5 md:space-y-2">
                 {facts.map((fact, index) => (
-                  <div key={index} className="flex items-start gap-3 p-2 rounded-lg hover:bg-gray-50/80 transition-colors duration-200">
-                    <div className="mt-0.5 text-gray-700 bg-gray-100 p-2 rounded-lg">
+                  <div key={index} className="flex items-start gap-2 md:gap-2.5 p-1 md:p-1.5 rounded-lg hover:bg-gray-50/80 transition-colors duration-200">
+                    <div className="mt-0.5 text-gray-700 bg-gray-100 p-1.5 md:p-2 rounded-lg flex-shrink-0">
                       {fact.icon}
                     </div>
-                    <div>
-                      <div className="text-sm font-bold text-gray-900">
+                    <div className="min-w-0 flex-1">
+                      <div className="text-xs md:text-sm font-bold text-gray-900 leading-tight">
                         {fact.label}
                       </div>
-                      <div className="text-sm text-gray-600">
+                      <div className="text-xs md:text-sm text-gray-600 leading-tight">
                         {fact.value}
                       </div>
                     </div>
@@ -265,9 +250,32 @@ const About = () => {
 
           {/* Empty Container - Preserving grid structure */}
           <BentoCard className="lg:col-span-1 bento-card">
-            <MagicCard className="h-full p-6 md:p-8 bg-gradient-to-br from-gray-50 to-white">
-              <div className="h-full flex items-center justify-center">
-                <div className="text-4xl md:text-5xl opacity-10">✨</div>
+            <MagicCard className="h-[280px] md:h-[300px] lg:h-[238px] p-4 md:p-5 lg:p-6 bg-gradient-to-br from-gray-50 to-white">
+              <div className="flex items-center gap-2 mb-3">
+                <div className="w-1 h-4 bg-gray-900 rounded-full"></div>
+                <h3 className="text-base md:text-lg lg:text-xl font-bold tracking-tight text-gray-900">
+                  Daily Routine
+                </h3>
+              </div>
+              <div className="h-[calc(100%-2.5rem)] overflow-hidden">
+                <AnimatedList delay={2000}>
+                  {activities.map((activity, index) => (
+                    <div
+                      key={index}
+                      className="flex items-center gap-2 p-2 rounded-lg bg-white border border-gray-100 shadow-sm"
+                    >
+                      <div 
+                        className="text-xl p-1.5 rounded-lg flex-shrink-0"
+                        style={{ backgroundColor: `${activity.color}20` }}
+                      >
+                        {activity.icon}
+                      </div>
+                      <span className="text-xs md:text-sm font-medium text-gray-700">
+                        {activity.text}
+                      </span>
+                    </div>
+                  ))}
+                </AnimatedList>
               </div>
             </MagicCard>
           </BentoCard>
@@ -275,13 +283,13 @@ const About = () => {
           {/* Individual Tech Stack Cards at Bottom */}
           {skills.map((skill, index) => (
             <BentoCard key={index} className="lg:col-span-1 bento-card">
-              <MagicCard className="h-full p-4 md:p-6 bg-gradient-to-br from-white to-gray-50">
+              <MagicCard className="h-[160px] md:h-[170px] lg:h-[180px] p-3 md:p-4 lg:p-5 bg-gradient-to-br from-white to-gray-50">
                 <div className="flex flex-col items-center justify-center h-full group-hover:scale-105 transition-transform duration-300">
-                  <div className="text-4xl md:text-5xl mb-2 md:mb-3 p-2 md:p-3 bg-gray-100 rounded-xl group-hover:shadow-md transition-shadow duration-300">{skill.icon}</div>
-                  <div className="text-base md:text-lg font-bold text-gray-900 mb-1">
+                  <div className="text-3xl md:text-4xl lg:text-5xl mb-1.5 md:mb-2 p-2 md:p-2.5 lg:p-3 bg-gray-100 rounded-xl group-hover:shadow-md transition-shadow duration-300">{skill.icon}</div>
+                  <div className="text-sm md:text-base lg:text-lg font-bold text-gray-900 mb-0.5 leading-tight">
                     {skill.name}
                   </div>
-                  <div className="text-sm text-gray-500 font-medium">Development</div>
+                  <div className="text-xs md:text-sm text-gray-500 font-medium leading-tight">Development</div>
                 </div>
               </MagicCard>
             </BentoCard>
