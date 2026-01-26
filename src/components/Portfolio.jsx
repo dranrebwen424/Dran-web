@@ -38,7 +38,7 @@ const Portfolio = () => {
   }, [isLightboxOpen]);
 
   // Categories
-  const categories = ['All', 'Prelim', 'Midterm', 'Pre-Final', 'Final'];
+  const categories = ['All', 'Animation', 'Branding', 'Design', 'Social Media'];
 
   // Featured video carousel
   const featuredVideos = [
@@ -162,52 +162,74 @@ const Portfolio = () => {
 
   const projects = [
     {
-      title: 'Final Project 3',
-      description: 'Creative design and development showcase',
-      image: '/assets/portfolio/Final-3.jpg',
-      category: 'Final',
+      title: 'Promotional Banner',
+      description: 'Eye-catching promotional banner design with vibrant colors and modern layout',
+      image: '/assets/portfolio/banner1.jpg',
+      category: 'Design',
+      height: 'tall', // for masonry
     },
     {
-      title: 'Final Exam Project 2',
-      description: 'Professional portfolio piece',
-      image: '/assets/portfolio/Final-Exam(2).jpg',
-      category: 'Final',
+      title: 'Logo Branding',
+      description: 'Professional logo and branding identity design',
+      image: '/assets/portfolio/branding logo.jpg',
+      category: 'Branding',
+      height: 'medium',
     },
     {
-      title: 'Model Sheet Design',
-      description: 'Design and implementation showcase',
-      image: '/assets/portfolio/Final-Exam.jpg',
-      category: 'Prelim',
+      title: 'Event Invitation Design',
+      description: 'Elegant invitation design for special events',
+      image: '/assets/portfolio/Invitation.jpg',
+      category: 'Design',
+      height: 'tall',
     },
     {
-      title: 'Portfolio Project 2',
-      description: 'Creative development work',
-      image: '/assets/portfolio/portfolio-2.jpg',
-      category: 'Prelim',
+      title: 'Modern Invitation',
+      description: 'Contemporary invitation design with clean aesthetics',
+      image: '/assets/portfolio/invitation1.jpg',
+      category: 'Design',
+      height: 'medium',
     },
     {
-      title: 'Portfolio Project 4',
-      description: 'Portfolio showcase piece',
-      image: '/assets/portfolio/portfolio-4.jpg',
-      category: 'Prelim',
+      title: 'Kasama Logo Branding',
+      description: 'Complete brand identity and logo design for Kasama',
+      image: '/assets/portfolio/kasama logo branding.jpg',
+      category: 'Branding',
+      height: 'short',
     },
     {
-      title: 'Portfolio Project 7',
-      description: 'Design project showcase',
-      image: '/assets/portfolio/portfolio-7.jpg',
-      category: 'Final',
+      title: 'Laicha Logo Branding',
+      description: 'Brand identity design featuring unique logo concepts',
+      image: '/assets/portfolio/logobranding-laicha.jpg',
+      category: 'Branding',
+      height: 'medium',
     },
     {
-      title: 'Pre-Lim Final Exam',
-      description: 'Pre-final examination project',
-      image: '/assets/portfolio/Pre-Lim-Final-Exam.jpg',
-      category: 'Prelim',
+      title: 'Pieces of Me',
+      description: 'Creative visual storytelling and artistic composition',
+      image: '/assets/portfolio/peaces of me.jpg',
+      category: 'Design',
+      height: 'tall',
     },
     {
-      title: 'Pre-mid Exam',
-      description: 'Mid-term examination project',
-      image: '/assets/portfolio/Pre-mid-Exam.jpg',
-      category: 'Midterm',
+      title: 'Social Media Graphics',
+      description: 'Engaging social media post designs and graphics',
+      image: '/assets/portfolio/sociial media.png',
+      category: 'Social Media',
+      height: 'medium',
+    },
+    {
+      title: 'T-Shirt Branding',
+      description: 'Custom apparel design and branding for merchandise',
+      image: '/assets/portfolio/tshirt branding.jpg',
+      category: 'Branding',
+      height: 'short',
+    },
+    {
+      title: 'Wenn Branding',
+      description: 'Brand identity and visual design system',
+      image: '/assets/portfolio/wenn branding.jpg',
+      category: 'Branding',
+      height: 'medium',
     },
   ];
 
@@ -368,105 +390,197 @@ const Portfolio = () => {
           </div>
         </div>
 
-        {/* Regular Projects Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          {/* Contact Card - Always Visible */}
-          <div
-            className="group bg-gradient-to-br from-blue-600 to-purple-600 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer"
+        {/* Let's Work Together Card - Asymmetrical Rectangle */}
+        <div className="mb-12">
+          <div 
+            className="relative bg-gradient-to-br from-blue-600 to-purple-600 overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500 max-w-6xl mx-auto group cursor-pointer"
+            style={{ 
+              borderRadius: '60px 20px 60px 20px',
+              height: '250px'
+            }}
           >
-            <div className="p-6 md:p-8 h-full flex flex-col justify-between min-h-[300px]">
-              <div>
-                <div className="w-12 h-12 md:w-16 md:h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                  <svg className="w-6 h-6 md:w-8 md:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                  </svg>
+            {/* 3D Marquee Background - Right Side with Enhanced Perspective */}
+            <div 
+              className="absolute right-0 top-0 bottom-0 w-1/2 overflow-hidden opacity-40"
+              style={{ perspective: '400px' }}
+            >
+              <div 
+                className="h-full flex gap-6 px-4"
+                style={{
+                  transform: 'translateX(-50px) translateY(0px) translateZ(-80px) rotateX(15deg) rotateY(-20deg) rotateZ(10deg)',
+                  transformStyle: 'preserve-3d'
+                }}
+              >
+                {/* Column 1 - scrolling up */}
+                <div className="flex flex-col gap-8 animate-marquee-up" style={{ transformStyle: 'preserve-3d' }}>
+                  {[...projects, ...projects].map((project, i) => (
+                    <div 
+                      key={`col1-${i}`} 
+                      className="flex-shrink-0 w-48 h-48 rounded-2xl overflow-hidden shadow-2xl transition-all group-hover:scale-110 duration-300 border border-white/20"
+                      style={{
+                        transformStyle: 'preserve-3d',
+                        transform: 'translateZ(20px)'
+                      }}
+                    >
+                      <img src={project.image} alt="" className="w-full h-full object-cover" />
+                    </div>
+                  ))}
                 </div>
-                <h3 className="text-2xl md:text-3xl font-bold text-white mb-3">
-                  Let's Work Together!
-                </h3>
-                <p className="text-white/90 text-sm md:text-base leading-relaxed mb-6">
-                  Have a project in mind? I'd love to hear about it. Let's create something amazing together.
-                </p>
+
+                {/* Column 2 - scrolling down */}
+                <div className="flex flex-col gap-8 animate-marquee-down" style={{ transformStyle: 'preserve-3d' }}>
+                  {[...projects, ...projects].reverse().map((project, i) => (
+                    <div 
+                      key={`col2-${i}`} 
+                      className="flex-shrink-0 w-48 h-48 rounded-2xl overflow-hidden shadow-2xl transition-all group-hover:scale-110 duration-300 border border-white/20"
+                      style={{
+                        transformStyle: 'preserve-3d',
+                        transform: 'translateZ(40px)'
+                      }}
+                    >
+                      <img src={project.image} alt="" className="w-full h-full object-cover" />
+                    </div>
+                  ))}
+                </div>
+
+                {/* Column 3 - scrolling up */}
+                <div className="flex flex-col gap-8 animate-marquee-up" style={{ transformStyle: 'preserve-3d' }}>
+                  {[...projects, ...projects].map((project, i) => (
+                    <div 
+                      key={`col3-${i}`} 
+                      className="flex-shrink-0 w-48 h-48 rounded-2xl overflow-hidden shadow-2xl transition-all group-hover:scale-110 duration-300 border border-white/20"
+                      style={{
+                        transformStyle: 'preserve-3d',
+                        transform: 'translateZ(60px)'
+                      }}
+                    >
+                      <img src={project.image} alt="" className="w-full h-full object-cover" />
+                    </div>
+                  ))}
+                </div>
               </div>
-              
-              <div className="space-y-3">
-                <a 
-                  href="#contact"
-                  className="block w-full py-3 bg-white text-blue-600 rounded-lg text-sm md:text-base font-semibold hover:bg-gray-100 transition-colors text-center"
-                >
-                  Get In Touch
-                </a>
-                <div className="flex gap-3 justify-center">
-                  <a href="#" className="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-colors">
-                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+
+            </div>
+
+            {/* Content Overlay - Left Side */}
+            <div className="relative z-10 h-full flex items-center">
+              <div className="w-1/2 pl-8 md:pl-12 lg:pl-16 pr-4">
+                <div className="flex items-center gap-6">
+                  <div className="w-16 h-16 bg-white/30 backdrop-blur-sm rounded-full flex items-center justify-center flex-shrink-0 group-hover:scale-110 group-hover:rotate-12 transition-all duration-300 shadow-lg">
+                    <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
-                  </a>
-                  <a href="#" className="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-colors">
-                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                    </svg>
-                  </a>
-                  <a href="#" className="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-colors">
-                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                    </svg>
+                  </div>
+                  
+                  <div className="flex-1">
+                    <h3 className="text-3xl md:text-4xl font-bold text-white mb-2 drop-shadow-2xl">
+                      Let's Work Together!
+                    </h3>
+                    <p className="text-white/90 text-sm md:text-base leading-relaxed drop-shadow-lg">
+                      Have a project in mind? Let's create something amazing.
+                    </p>
+                  </div>
+
+                  <a 
+                    href="#contact"
+                    className="px-8 py-4 bg-white text-blue-600 rounded-2xl font-bold hover:bg-gray-100 transition-all text-center shadow-2xl hover:scale-105 transform duration-300 whitespace-nowrap flex-shrink-0"
+                  >
+                    Get In Touch
                   </a>
                 </div>
               </div>
             </div>
-          </div>
 
-          {filteredProjects.map((project, index) => (
-            <div
-              key={project.title}
-              ref={el => projectsRef.current[index + 1] = el}
-              className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer"
-            >
-              {/* Project Image */}
-              <div 
-                className="h-40 sm:h-48 relative overflow-hidden bg-gray-200 cursor-pointer"
-                onClick={() => openLightbox(project)}
+            {/* Custom CSS for 3D marquee animations */}
+            <style jsx>{`
+              @keyframes marquee-up {
+                0% { transform: translateY(0); }
+                100% { transform: translateY(-50%); }
+              }
+              @keyframes marquee-down {
+                0% { transform: translateY(-50%); }
+                100% { transform: translateY(0); }
+              }
+              .animate-marquee-up {
+                animation: marquee-up 25s linear infinite;
+              }
+              .animate-marquee-down {
+                animation: marquee-down 25s linear infinite;
+              }
+            `}</style>
+          </div>
+        </div>
+
+        {/* Masonry Projects Grid */}
+        <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 md:gap-8 space-y-6 md:space-y-8">
+          {filteredProjects.map((project, index) => {
+            // Dynamic height classes for masonry effect
+            const heightClass = project.height === 'tall' ? 'h-[400px] sm:h-[500px]' : 
+                               project.height === 'short' ? 'h-[250px] sm:h-[300px]' : 
+                               'h-[320px] sm:h-[380px]';
+            
+            return (
+              <div
+                key={project.title}
+                ref={el => projectsRef.current[index + 1] = el}
+                className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer break-inside-avoid mb-6 md:mb-8"
               >
-                <img 
-                  src={project.image} 
-                  alt={project.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  onError={(e) => {
-                    e.target.style.display = 'none';
-                    e.target.parentElement.classList.add('bg-gradient-to-br', 'from-gray-300', 'to-gray-400');
-                  }}
-                />
-                <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-20 transition-opacity duration-300 flex items-center justify-center">
-                  <div className="text-white text-3xl transform scale-0 group-hover:scale-100 transition-transform duration-300">
-                    🔍
+                {/* Project Image */}
+                <div 
+                  className={`${heightClass} relative overflow-hidden bg-gray-200 cursor-pointer`}
+                  onClick={() => openLightbox(project)}
+                >
+                  <img 
+                    src={project.image} 
+                    alt={project.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    onError={(e) => {
+                      e.target.style.display = 'none';
+                      e.target.parentElement.classList.add('bg-gradient-to-br', 'from-gray-300', 'to-gray-400');
+                    }}
+                  />
+                  {/* Category Badge and Gradient Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="absolute bottom-4 left-4 right-4">
+                      <span className="inline-block px-3 py-1 bg-white/90 backdrop-blur-sm text-gray-900 rounded-full text-xs font-semibold">
+                        {project.category}
+                      </span>
+                    </div>
+                  </div>
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center transform scale-75 group-hover:scale-100 transition-transform duration-300">
+                      <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                      </svg>
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              {/* Project Info */}
-              <div className="p-4 sm:p-6">
-                <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 group-hover:text-gray-700 transition-colors">
-                  {project.title}
-                </h3>
-                <p className="text-gray-600 text-xs sm:text-sm mb-4 line-clamp-2">
-                  {project.description}
-                </p>
+                {/* Project Info */}
+                <div className="p-4 sm:p-6">
+                  <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
+                    {project.title}
+                  </h3>
+                  <p className="text-gray-600 text-xs sm:text-sm mb-4 line-clamp-2">
+                    {project.description}
+                  </p>
 
-                {/* Links */}
-                <div className="flex gap-2 sm:gap-3">
+                  {/* View Button */}
                   <button 
                     onClick={() => openLightbox(project)}
-                    className="flex-1 py-2 bg-gray-900 text-white rounded-lg text-xs sm:text-sm font-medium hover:bg-gray-800 transition-colors"
+                    className="w-full py-2.5 bg-gray-900 text-white rounded-lg text-xs sm:text-sm font-medium hover:bg-blue-600 transition-colors flex items-center justify-center gap-2"
                   >
-                    <span className="hidden sm:inline">View Project</span>
-                    <span className="sm:hidden">View</span>
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                    </svg>
+                    <span>View Project</span>
                   </button>
-                  {/* Details button removed */}
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         {/* Lightbox Modal */}
