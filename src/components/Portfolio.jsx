@@ -254,7 +254,7 @@ const Portfolio = () => {
 
         {/* Featured Video Carousel - Netflix Style */}
         <div className="mb-12 featured-carousel">
-          <div className="relative rounded-xl md:rounded-2xl overflow-hidden shadow-2xl h-[400px] md:h-[500px] lg:h-[600px]">
+          <div className="relative rounded-xl md:rounded-2xl overflow-hidden shadow-2xl h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px]">
             {/* Video Backgrounds with Blur Transition */}
             {featuredVideos.map((project, index) => (
               <div
@@ -280,28 +280,28 @@ const Portfolio = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
                 
                 {/* Content Overlay */}
-                <div className="absolute inset-0 flex flex-col justify-end p-4 sm:p-6 md:p-12 lg:p-16">
+                <div className="absolute inset-0 flex flex-col justify-end p-3 sm:p-4 md:p-12 lg:p-16">
                   <div className="max-w-3xl">
-                    <div className="mb-2 md:mb-3">
-                      <span className="bg-yellow-400 text-gray-900 px-2 py-0.5 md:px-3 md:py-1 rounded-full text-[10px] md:text-xs font-bold uppercase tracking-wide shadow-lg">
+                    <div className="mb-1.5 sm:mb-2 md:mb-3">
+                      <span className="bg-yellow-400 text-gray-900 px-2 py-0.5 md:px-3 md:py-1 rounded-full text-[9px] sm:text-[10px] md:text-xs font-bold uppercase tracking-wide shadow-lg">
                         ⭐ Featured
                       </span>
                     </div>
                     
-                    <h3 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-2 md:mb-4 drop-shadow-lg">
+                    <h3 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-bold text-white mb-1.5 sm:mb-2 md:mb-4 drop-shadow-lg line-clamp-2 sm:line-clamp-none">
                       {project.title}
                     </h3>
                     
-                    <p className="text-gray-200 text-sm sm:text-base md:text-lg lg:text-xl mb-4 md:mb-6 leading-relaxed drop-shadow-md line-clamp-2 md:line-clamp-none">
+                    <p className="text-gray-200 text-xs sm:text-sm md:text-lg lg:text-xl mb-2 sm:mb-4 md:mb-6 leading-relaxed drop-shadow-md line-clamp-2">
                       {project.description}
                     </p>
 
                     {/* Tech Stack */}
-                    <div className="flex flex-wrap gap-1.5 md:gap-2 mb-4 md:mb-8">
+                    <div className="flex flex-wrap gap-1 sm:gap-1.5 md:gap-2 mb-2 sm:mb-4 md:mb-8">
                       {project.tech.map(tech => (
                         <span 
                           key={tech}
-                          className="px-2 py-1 md:px-4 md:py-2 bg-white/20 backdrop-blur-md text-white rounded-md md:rounded-lg text-xs md:text-sm font-semibold"
+                          className="px-1.5 py-0.5 sm:px-2 sm:py-1 md:px-4 md:py-2 bg-white/20 backdrop-blur-md text-white rounded md:rounded-lg text-[10px] sm:text-xs md:text-sm font-semibold"
                         >
                           {tech}
                         </span>
@@ -395,13 +395,13 @@ const Portfolio = () => {
           <div 
             className="relative bg-gradient-to-br from-blue-600 to-purple-600 overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500 max-w-6xl mx-auto group cursor-pointer"
             style={{ 
-              borderRadius: '60px 20px 60px 20px',
-              height: '250px'
+              borderRadius: '30px 10px 30px 10px',
+              minHeight: '200px'
             }}
           >
             {/* 3D Marquee Background - Right Side with Enhanced Perspective */}
             <div 
-              className="absolute right-0 top-0 bottom-0 w-1/2 overflow-hidden opacity-40"
+              className="hidden sm:block absolute right-0 top-0 bottom-0 w-1/2 overflow-hidden opacity-40"
               style={{ perspective: '400px' }}
             >
               <div 
@@ -463,27 +463,27 @@ const Portfolio = () => {
             </div>
 
             {/* Content Overlay - Left Side */}
-            <div className="relative z-10 h-full flex items-center">
-              <div className="w-1/2 pl-8 md:pl-12 lg:pl-16 pr-4">
-                <div className="flex items-center gap-6">
-                  <div className="w-16 h-16 bg-white/30 backdrop-blur-sm rounded-full flex items-center justify-center flex-shrink-0 group-hover:scale-110 group-hover:rotate-12 transition-all duration-300 shadow-lg">
-                    <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="relative z-10 h-full flex items-center py-6 sm:py-0">
+              <div className="w-full sm:w-1/2 px-4 sm:pl-8 md:pl-12 lg:pl-16 sm:pr-4">
+                <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 md:gap-6 text-center sm:text-left">
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-white/30 backdrop-blur-sm rounded-full flex items-center justify-center flex-shrink-0 group-hover:scale-110 group-hover:rotate-12 transition-all duration-300 shadow-lg">
+                    <svg className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
                   </div>
                   
                   <div className="flex-1">
-                    <h3 className="text-3xl md:text-4xl font-bold text-white mb-2 drop-shadow-2xl">
+                    <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-1 sm:mb-2 drop-shadow-2xl">
                       Let's Work Together!
                     </h3>
-                    <p className="text-white/90 text-sm md:text-base leading-relaxed drop-shadow-lg">
+                    <p className="text-white/90 text-xs sm:text-sm md:text-base leading-relaxed drop-shadow-lg">
                       Have a project in mind? Let's create something amazing.
                     </p>
                   </div>
 
                   <a 
                     href="#contact"
-                    className="px-8 py-4 bg-white text-blue-600 rounded-2xl font-bold hover:bg-gray-100 transition-all text-center shadow-2xl hover:scale-105 transform duration-300 whitespace-nowrap flex-shrink-0"
+                    className="px-6 py-3 sm:px-7 sm:py-3.5 md:px-8 md:py-4 bg-white text-blue-600 rounded-xl sm:rounded-2xl font-bold hover:bg-gray-100 transition-all text-center shadow-2xl hover:scale-105 transform duration-300 whitespace-nowrap flex-shrink-0 text-sm sm:text-base"
                   >
                     Get In Touch
                   </a>
@@ -512,12 +512,12 @@ const Portfolio = () => {
         </div>
 
         {/* Masonry Projects Grid */}
-        <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 md:gap-8 space-y-6 md:space-y-8">
+        <div className="columns-2 sm:columns-2 lg:columns-3 gap-4 sm:gap-6 md:gap-8 space-y-4 sm:space-y-6 md:space-y-8">
           {filteredProjects.map((project, index) => {
             // Dynamic height classes for masonry effect
-            const heightClass = project.height === 'tall' ? 'h-[400px] sm:h-[500px]' : 
-                               project.height === 'short' ? 'h-[250px] sm:h-[300px]' : 
-                               'h-[320px] sm:h-[380px]';
+            const heightClass = project.height === 'tall' ? 'h-[300px] sm:h-[380px]' : 
+                               project.height === 'short' ? 'h-[200px] sm:h-[240px]' : 
+                               'h-[250px] sm:h-[300px]';
             
             return (
               <div
